@@ -1,4 +1,4 @@
-# Base62 [![License](https://img.shields.io/hexpm/l/base62.svg?style=flat-square)](https://github.com/igas/base62/blob/master/LICENSE)
+# Base62 [![License](https://img.shields.io/hexpm/l/base62.svg?style=flat-square)](https://github.com/igas/base62/blob/master/LICENSE)[![Build Status](https://img.shields.io/travis/igas/base62.svg?style=flat-square)](https://travis-ci.org/igas/base62)
 
 Base62 encoder/decoder in pure Elixir.
 
