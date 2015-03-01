@@ -1,4 +1,4 @@
-# Base62
+# Base62 [![License](https://img.shields.io/hexpm/l/base62.svg?style=flat-square)](https://github.com/igas/base62/blob/master/LICENSE)
 
 Base62 encoder/decoder in pure Elixir.
 
@@ -29,3 +29,7 @@ iex> Base62.decode("igas")
 iex> Base62.decode("EvilMartians")
 776957886790921093120
 ```
+
+# [License](https://github.com/igas/base62/blob/master/LICENSE)
+
+Released under the MIT License.
