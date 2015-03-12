@@ -20,13 +20,13 @@ iex> Base62.encode(280)
 ### Decode
 
 ```
-iex> Base62.decode("100")
+iex> Base62.decode!("100")
 3844
 
-iex> Base62.decode("igas")
+iex> Base62.decode!("igas")
 10650166
 
-iex> Base62.decode("EvilMartians")
+iex> Base62.decode!("EvilMartians")
 776957886790921093120
 ```
 
