@@ -17,7 +17,7 @@ iex> Base62.encode(280)
 "4W"
 ```
 
-### Decode
+### Decode!
 
 ```
 iex> Base62.decode!("100")
@@ -28,6 +28,19 @@ iex> Base62.decode!("igas")
 
 iex> Base62.decode!("EvilMartians")
 776957886790921093120
+```
+
+### Decode
+
+```
+iex> Base62.decode("42")
+{:ok, 250}
+
+iex> Base62.decode("Игас")
+:error
+
+iex> Base62.decode("Elixir")
+{:ok, 13531063449}
 ```
 
 # [License](https://github.com/igas/base62/blob/master/LICENSE)
