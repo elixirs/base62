@@ -5,8 +5,10 @@ defmodule Base62.Mixfile do
     [app: :base62,
      version: "1.1.0",
      elixir: "~> 1.0",
+     name: "Base62",
      description: description,
      package: package,
+     source_url: "https://github.com/igas/base62",
      deps: deps]
   end
 
