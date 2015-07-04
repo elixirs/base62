@@ -7,7 +7,6 @@ otp_release:
   - 17.1
   - 17.3
   - 17.4
-script: mix test
 sudo: false
 notifications:
   recipients:
