@@ -1,14 +1,21 @@
 defmodule Base62.Mixfile do
   use Mix.Project
 
+  @version "1.2.0"
+  @github "https://github.com/igas/base62"
+
   def project do
     [app: :base62,
-     version: "1.1.0",
+     version: @version,
      elixir: "~> 1.0",
      name: "Base62",
      description: description,
      package: package,
-     source_url: "https://github.com/igas/base62",
+     source_url: @github,
+     docs: [extras: ["README.md"],
+            main: "README",
+            source_ref: "v#{@version}",
+            source_url: @github],
      deps: deps]
   end
 
@@ -25,9 +32,9 @@ defmodule Base62.Mixfile do
   end
 
   defp package do
-    [contributors: ["Igor Kapkov"],
+    [maintainers: ["Igor Kapkov"],
      files: ["lib", "mix.exs", "README.md", "LICENSE"],
      licenses: ["MIT"],
-     links: %{"Github" => "https://github.com/igas/base62"}]
+     links: %{"Github" => @github}]
   end
 end
