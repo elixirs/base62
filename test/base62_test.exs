@@ -69,6 +69,9 @@ defmodule Base62Test do
     assert encode(62) == "10"
     assert encode(100) == "1c"
     assert encode(124) == "20"
+    assert encode(4_815_162_342) == "5Frvgk"
+    assert encode(9_223_372_036_854_775_807) == "AzL8n0Y58m7"
+    assert encode(26_567_849_713_993_370_845_693_800_611_841) == "8zIcpbAKe8shBxXUtl"
   end
 
   test :decode do
@@ -137,7 +140,10 @@ defmodule Base62Test do
     assert decode("10") == { :ok, 62 }
     assert decode("1c") == { :ok, 100 }
     assert decode("20") == { :ok, 124 }
+    assert decode("5Frvgk") == { :ok, 4_815_162_342 }
     assert decode("zzzzzz") == { :ok, 56_800_235_583 }
+    assert decode("AzL8n0Y58m7") == { :ok, 9_223_372_036_854_775_807 }
+    assert decode("8zIcpbAKe8shBxXUtl") == { :ok, 26_567_849_713_993_370_845_693_800_611_841 }
   end
 
   test :decode! do
@@ -206,6 +212,9 @@ defmodule Base62Test do
     assert decode!("10") == 62
     assert decode!("1c") == 100
     assert decode!("20") == 124
+    assert decode!("5Frvgk") == 4_815_162_342
     assert decode!("zzzzzz") == 56_800_235_583
+    assert decode!("AzL8n0Y58m7") == 9_223_372_036_854_775_807
+    assert decode!("8zIcpbAKe8shBxXUtl") == 26_567_849_713_993_370_845_693_800_611_841
   end
 end
