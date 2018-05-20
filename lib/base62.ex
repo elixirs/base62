@@ -38,7 +38,7 @@ defmodule Base62 do
 
   @doc """
   Same as `decode/1` except this function return just number or raise error if
-  bianry can not be converted.
+  binary can not be converted.
   """
   def decode!(binary)
 end
