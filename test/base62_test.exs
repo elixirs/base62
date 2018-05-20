@@ -1,7 +1,16 @@
 defmodule Base62Test do
   use ExUnit.Case, async: true
+  use ExUnitProperties
 
   import Base62
+
+  property "decode encoded value returns original value" do
+    check all number <-
+                integer(0..999_999_999_999_999_999_999_999_999_999_999_999_999_999_999_999),
+              max_runs: 10_000 do
+      assert number == decode!(encode(number))
+    end
+  end
 
   test :encode do
     assert encode(0) == "0"
@@ -75,75 +84,75 @@ defmodule Base62Test do
   end
 
   test :decode do
-    assert decode("0") == { :ok, 0 }
-    assert decode("1") == { :ok, 1 }
-    assert decode("2") == { :ok, 2 }
-    assert decode("3") == { :ok, 3 }
-    assert decode("4") == { :ok, 4 }
-    assert decode("5") == { :ok, 5 }
-    assert decode("6") == { :ok, 6 }
-    assert decode("7") == { :ok, 7 }
-    assert decode("8") == { :ok, 8 }
-    assert decode("9") == { :ok, 9 }
-    assert decode("A") == { :ok, 10 }
-    assert decode("B") == { :ok, 11 }
-    assert decode("C") == { :ok, 12 }
-    assert decode("D") == { :ok, 13 }
-    assert decode("E") == { :ok, 14 }
-    assert decode("F") == { :ok, 15 }
-    assert decode("G") == { :ok, 16 }
-    assert decode("H") == { :ok, 17 }
-    assert decode("I") == { :ok, 18 }
-    assert decode("J") == { :ok, 19 }
-    assert decode("K") == { :ok, 20 }
-    assert decode("L") == { :ok, 21 }
-    assert decode("M") == { :ok, 22 }
-    assert decode("N") == { :ok, 23 }
-    assert decode("O") == { :ok, 24 }
-    assert decode("P") == { :ok, 25 }
-    assert decode("Q") == { :ok, 26 }
-    assert decode("R") == { :ok, 27 }
-    assert decode("S") == { :ok, 28 }
-    assert decode("T") == { :ok, 29 }
-    assert decode("U") == { :ok, 30 }
-    assert decode("V") == { :ok, 31 }
-    assert decode("W") == { :ok, 32 }
-    assert decode("X") == { :ok, 33 }
-    assert decode("Y") == { :ok, 34 }
-    assert decode("Z") == { :ok, 35 }
-    assert decode("a") == { :ok, 36 }
-    assert decode("b") == { :ok, 37 }
-    assert decode("c") == { :ok, 38 }
-    assert decode("d") == { :ok, 39 }
-    assert decode("e") == { :ok, 40 }
-    assert decode("f") == { :ok, 41 }
-    assert decode("g") == { :ok, 42 }
-    assert decode("h") == { :ok, 43 }
-    assert decode("i") == { :ok, 44 }
-    assert decode("j") == { :ok, 45 }
-    assert decode("k") == { :ok, 46 }
-    assert decode("l") == { :ok, 47 }
-    assert decode("m") == { :ok, 48 }
-    assert decode("n") == { :ok, 49 }
-    assert decode("o") == { :ok, 50 }
-    assert decode("p") == { :ok, 51 }
-    assert decode("q") == { :ok, 52 }
-    assert decode("r") == { :ok, 53 }
-    assert decode("s") == { :ok, 54 }
-    assert decode("t") == { :ok, 55 }
-    assert decode("u") == { :ok, 56 }
-    assert decode("v") == { :ok, 57 }
-    assert decode("w") == { :ok, 58 }
-    assert decode("x") == { :ok, 59 }
-    assert decode("y") == { :ok, 60 }
-    assert decode("z") == { :ok, 61 }
-    assert decode("10") == { :ok, 62 }
-    assert decode("1c") == { :ok, 100 }
-    assert decode("20") == { :ok, 124 }
-    assert decode("5Frvgk") == { :ok, 4_815_162_342 }
-    assert decode("zzzzzz") == { :ok, 56_800_235_583 }
-    assert decode("AzL8n0Y58m7") == { :ok, 9_223_372_036_854_775_807 }
-    assert decode("8zIcpbAKe8shBxXUtl") == { :ok, 26_567_849_713_993_370_845_693_800_611_841 }
+    assert decode("0") == {:ok, 0}
+    assert decode("1") == {:ok, 1}
+    assert decode("2") == {:ok, 2}
+    assert decode("3") == {:ok, 3}
+    assert decode("4") == {:ok, 4}
+    assert decode("5") == {:ok, 5}
+    assert decode("6") == {:ok, 6}
+    assert decode("7") == {:ok, 7}
+    assert decode("8") == {:ok, 8}
+    assert decode("9") == {:ok, 9}
+    assert decode("A") == {:ok, 10}
+    assert decode("B") == {:ok, 11}
+    assert decode("C") == {:ok, 12}
+    assert decode("D") == {:ok, 13}
+    assert decode("E") == {:ok, 14}
+    assert decode("F") == {:ok, 15}
+    assert decode("G") == {:ok, 16}
+    assert decode("H") == {:ok, 17}
+    assert decode("I") == {:ok, 18}
+    assert decode("J") == {:ok, 19}
+    assert decode("K") == {:ok, 20}
+    assert decode("L") == {:ok, 21}
+    assert decode("M") == {:ok, 22}
+    assert decode("N") == {:ok, 23}
+    assert decode("O") == {:ok, 24}
+    assert decode("P") == {:ok, 25}
+    assert decode("Q") == {:ok, 26}
+    assert decode("R") == {:ok, 27}
+    assert decode("S") == {:ok, 28}
+    assert decode("T") == {:ok, 29}
+    assert decode("U") == {:ok, 30}
+    assert decode("V") == {:ok, 31}
+    assert decode("W") == {:ok, 32}
+    assert decode("X") == {:ok, 33}
+    assert decode("Y") == {:ok, 34}
+    assert decode("Z") == {:ok, 35}
+    assert decode("a") == {:ok, 36}
+    assert decode("b") == {:ok, 37}
+    assert decode("c") == {:ok, 38}
+    assert decode("d") == {:ok, 39}
+    assert decode("e") == {:ok, 40}
+    assert decode("f") == {:ok, 41}
+    assert decode("g") == {:ok, 42}
+    assert decode("h") == {:ok, 43}
+    assert decode("i") == {:ok, 44}
+    assert decode("j") == {:ok, 45}
+    assert decode("k") == {:ok, 46}
+    assert decode("l") == {:ok, 47}
+    assert decode("m") == {:ok, 48}
+    assert decode("n") == {:ok, 49}
+    assert decode("o") == {:ok, 50}
+    assert decode("p") == {:ok, 51}
+    assert decode("q") == {:ok, 52}
+    assert decode("r") == {:ok, 53}
+    assert decode("s") == {:ok, 54}
+    assert decode("t") == {:ok, 55}
+    assert decode("u") == {:ok, 56}
+    assert decode("v") == {:ok, 57}
+    assert decode("w") == {:ok, 58}
+    assert decode("x") == {:ok, 59}
+    assert decode("y") == {:ok, 60}
+    assert decode("z") == {:ok, 61}
+    assert decode("10") == {:ok, 62}
+    assert decode("1c") == {:ok, 100}
+    assert decode("20") == {:ok, 124}
+    assert decode("5Frvgk") == {:ok, 4_815_162_342}
+    assert decode("zzzzzz") == {:ok, 56_800_235_583}
+    assert decode("AzL8n0Y58m7") == {:ok, 9_223_372_036_854_775_807}
+    assert decode("8zIcpbAKe8shBxXUtl") == {:ok, 26_567_849_713_993_370_845_693_800_611_841}
   end
 
   test :decode! do
