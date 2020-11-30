@@ -1,7 +1,7 @@
 defmodule Base62.Mixfile do
   use Mix.Project
 
-  @version "1.2.1"
+  @version "1.2.2"
   @github "https://github.com/igas/base62"
 
   def project do
@@ -13,17 +13,23 @@ defmodule Base62.Mixfile do
       description: description(),
       package: package(),
       source_url: @github,
-      docs: [
-        extras: ["README.md"],
-        main: "README",
-        source_ref: "v#{@version}",
-        source_url: @github
-      ],
+      docs: docs(),
       deps: deps()
     ]
   end
 
   def application, do: []
+
+  defp docs do
+    [
+      extras: ["README.md"],
+      main: "readme",
+      name: "Base62",
+      canonical: "https://hexdocs.pm/base62",
+      source_ref: "v#{@version}",
+      source_url: @github
+    ]
+  end
 
   defp deps do
     [
