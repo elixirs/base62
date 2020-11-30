@@ -24,6 +24,7 @@ defmodule Base62.Mixfile do
     [
       extras: ["README.md"],
       main: "readme",
+      name: "Base62",
       canonical: "https://hexdocs.pm/base62",
       source_ref: "v#{@version}",
       source_url: @github
