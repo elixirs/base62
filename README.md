@@ -6,7 +6,7 @@ Base62 encoder/decoder in pure Elixir.
 
 ### Encode
 
-```
+```elixir
 iex> Base62.encode(28)
 "S"
 
@@ -19,7 +19,7 @@ iex> Base62.encode(280)
 
 ### Decode!
 
-```
+```elixir
 iex> Base62.decode!("100")
 3844
 
@@ -32,7 +32,7 @@ iex> Base62.decode!("EvilMartians")
 
 ### Decode
 
-```
+```elixir
 iex> Base62.decode("42")
 {:ok, 250}
 
