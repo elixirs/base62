@@ -1,39 +1,90 @@
 name: CI
+
 on:
   - pull_request
   - push
+
 jobs:
-  mix_test:
+  test:
     name: mix test (Elixir ${{ matrix.elixir }} OTP ${{ matrix.otp }})
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os || 'ubuntu-latest' }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - elixir: '1.5.x'
-            otp: '20.x'
-          - elixir: '1.6.x'
-            otp: '20.x'
-          - elixir: '1.7.x'
-            otp: '22.x'
-          - elixir: '1.8.x'
-            otp: '22.x'
-          - elixir: '1.9.x'
-            otp: '22.x'
-          - elixir: '1.10.x'
-            otp: '23.x'
-          - elixir: '1.11.x'
-            otp: '23.x'
+          - elixir: 1.7.x
+            os: ubuntu-18.04
+            otp: 19.x
+          
+          - elixir: 1.7.x
+            otp: 20.x
+
+          - elixir: 1.7.x
+            otp: 21.x
+
+          - elixir: 1.7.x
+            otp: 22.x
+
+          - elixir: 1.8.x
+            otp: 20.x
+
+          - elixir: 1.8.x
+            otp: 21.x
+
+          - elixir: 1.8.x
+            otp: 22.x
+
+          - elixir: 1.9.x
+            otp: 20.x
+
+          - elixir: 1.9.x
+            otp: 21.x
+
+          - elixir: 1.9.x
+            otp: 22.x
+
+          - elixir: 1.10.x
+            otp: 21.x
+
+          - elixir: 1.10.x
+            otp: 22.x
+
+          - elixir: 1.11.x
+            otp: 21.x
+
+          - elixir: 1.11.x
+            otp: 22.x
+
+          - elixir: 1.11.x
+            otp: 23.x
+
+          - elixir: 1.12.x
+            otp: 22.x
+
+          - elixir: 1.12.x
+            otp: 23.x
+
+          - elixir: 1.12.x
+            otp: 24.x
+
     steps:
-      - uses: actions/checkout@v2.3.2
-      - uses: actions/setup-elixir@v1.5.0
+      - name: Checkout source
+        uses: actions/checkout@v2.3.2
+
+      - name: Setup cache
+        uses: actions/cache@v2.1.6
         with:
-          otp-version: ${{ matrix.otp }}
+          key: ${{ github.job }}-${{ matrix.elixir }}-${{ matrix.otp }}-${{ hashFiles('mix.lock') }}-1
+          path: _build
+
+      - name: Install runtime
+        uses: erlef/setup-beam@v1.9.0
+        with:
           elixir-version: ${{ matrix.elixir }}
+          otp-version: ${{ matrix.otp }}
+
       - name: Install Dependencies
-        run: |
-          mix local.hex --force
-          mix local.rebar --force
-          mix deps.get --only test
+        run: mix deps.get
+
       - name: Run tests
         run: mix test
