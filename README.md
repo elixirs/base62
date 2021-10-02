@@ -1,4 +1,4 @@
-# Base62 [![Version](https://img.shields.io/hexpm/v/base62.svg?style=flat-square)](https://hex.pm/packages/base62)[![License](https://img.shields.io/hexpm/l/base62.svg?style=flat-square)](https://github.com/igas/base62/blob/master/LICENSE)[![Build Status](https://img.shields.io/travis/igas/base62.svg?style=flat-square)](https://travis-ci.org/igas/base62)[![Issues](https://img.shields.io/github/issues/igas/base62.svg?style=flat-square)](https://github.com/igas/base62/issues)[![Downloads](https://img.shields.io/hexpm/dt/base62.svg?style=flat-square)](https://hex.pm/packages/base62)
+# Base62 [![Version](https://img.shields.io/hexpm/v/base62.svg?style=flat-square)](https://hex.pm/packages/base62)[![License](https://img.shields.io/hexpm/l/base62.svg?style=flat-square)](https://github.com/igas/base62/blob/main/LICENSE)[![Build Status](https://img.shields.io/travis/igas/base62.svg?style=flat-square)](https://travis-ci.org/igas/base62)[![Issues](https://img.shields.io/github/issues/igas/base62.svg?style=flat-square)](https://github.com/igas/base62/issues)[![Downloads](https://img.shields.io/hexpm/dt/base62.svg?style=flat-square)](https://hex.pm/packages/base62)
 
 Base62 encoder/decoder in pure Elixir.
 
@@ -43,6 +43,6 @@ iex> Base62.decode("Elixir")
 {:ok, 13531063449}
 ```
 
-# [License](https://github.com/igas/base62/blob/master/LICENSE)
+# [License](https://github.com/igas/base62/blob/main/LICENSE)
 
 Released under the MIT License.
