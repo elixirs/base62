@@ -12,61 +12,48 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - elixir: 1.7.x
-            os: ubuntu-18.04
-            otp: 19.x
-          
-          - elixir: 1.7.x
-            otp: 20.x
-
-          - elixir: 1.7.x
-            otp: 21.x
-
-          - elixir: 1.7.x
-            otp: 22.x
-
-          - elixir: 1.8.x
-            otp: 20.x
-
-          - elixir: 1.8.x
-            otp: 21.x
-
-          - elixir: 1.8.x
-            otp: 22.x
-
-          - elixir: 1.9.x
-            otp: 20.x
-
-          - elixir: 1.9.x
-            otp: 21.x
-
-          - elixir: 1.9.x
-            otp: 22.x
-
-          - elixir: 1.10.x
-            otp: 21.x
-
-          - elixir: 1.10.x
-            otp: 22.x
-
           - elixir: 1.11.x
             otp: 21.x
-
+            os: ubuntu-20.04
           - elixir: 1.11.x
             otp: 22.x
-
+            os: ubuntu-20.04
           - elixir: 1.11.x
             otp: 23.x
-
+            os: ubuntu-20.04
           - elixir: 1.12.x
             otp: 22.x
-
+            os: ubuntu-20.04
           - elixir: 1.12.x
             otp: 23.x
-
+            os: ubuntu-20.04
           - elixir: 1.12.x
             otp: 24.x
-
+            os: ubuntu-20.04
+          - elixir: 1.13.x
+            otp: 22.x
+            os: ubuntu-20.04
+          - elixir: 1.13.x
+            otp: 23.x
+            os: ubuntu-20.04
+          - elixir: 1.13.x
+            otp: 24.x
+            os: ubuntu-20.04
+          - elixir: 1.14.x
+            otp: 23.x
+            os: ubuntu-20.04
+          - elixir: 1.14.x
+            otp: 24.x
+            os: ubuntu-20.04
+          - elixir: 1.14.x
+            otp: 25.x
+            os: ubuntu-20.04
+          - elixir: 1.15.x
+            otp: 24.x
+            os: ubuntu-20.04
+          - elixir: 1.15.x
+            otp: 25.x
+            os: ubuntu-20.04
     steps:
       - name: Checkout source
         uses: actions/checkout@v2.3.2
@@ -78,7 +65,7 @@ jobs:
           path: _build
 
       - name: Install runtime
-        uses: erlef/setup-beam@v1.9.0
+        uses: erlef/setup-beam@v1.17.5
         with:
           elixir-version: ${{ matrix.elixir }}
           otp-version: ${{ matrix.otp }}
