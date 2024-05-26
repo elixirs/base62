@@ -65,7 +65,7 @@ jobs:
           path: _build
 
       - name: Install runtime
-        uses: erlef/setup-beam@v1.9.0
+        uses: erlef/setup-beam@v1.17.5
         with:
           elixir-version: ${{ matrix.elixir }}
           otp-version: ${{ matrix.otp }}
