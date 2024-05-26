@@ -59,7 +59,7 @@ jobs:
         uses: actions/checkout@2036a08e25fa78bbd946711a407b529a0a1204bf # v2.3.2
 
       - name: Setup cache
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # v2.1.6
+        uses: actions/cache@2b250bc32ad02700b996b496c14ac8c2840a2991 # v2.1.8
         with:
           key: ${{ github.job }}-${{ matrix.elixir }}-${{ matrix.otp }}-${{ hashFiles('mix.lock') }}-1
           path: _build
