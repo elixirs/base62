@@ -34,7 +34,7 @@ defmodule Base62.Mixfile do
   defp deps do
     [
       {:custom_base, "~> 0.2.1"},
-      {:ex_doc, "~> 0.16", only: :dev},
+      {:ex_doc, "~> 0.28", only: :dev},
       {:earmark, "~> 1.2", only: :dev},
       {:stream_data, "~> 0.1", only: :test}
     ]
