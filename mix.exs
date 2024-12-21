@@ -8,7 +8,7 @@ defmodule Base62.Mixfile do
     [
       app: :base62,
       version: @version,
-      elixir: "~> 1.0",
+      elixir: "~> 1.12",
       name: "Base62",
       description: description(),
       package: package(),
@@ -36,7 +36,7 @@ defmodule Base62.Mixfile do
       {:custom_base, "~> 0.2.1"},
       {:ex_doc, "~> 0.16", only: :dev},
       {:earmark, "~> 1.2", only: :dev},
-      {:stream_data, "~> 0.6", only: :test}
+      {:stream_data, "~> 1.0", only: :test}
     ]
   end
 

@@ -1,5 +1,5 @@
 defmodule Base62 do
-  use CustomBase, '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  use CustomBase, ~c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
   @moduledoc """
   This module provides data encoding and decoding functions for base62 alphabet:
